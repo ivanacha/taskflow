@@ -49,8 +49,8 @@ RUN python -m pip install --upgrade pip \
 WORKDIR /workspace
 
 # Copy package.json files if they exist (for faster rebuilds)
-COPY frontend/package*.json ./frontend/ 2>/dev/null || true
-COPY backend/requirements*.txt ./backend/ 2>/dev/null || true
+COPY ["frontend/package*.json", "./frontend/"] 2>/dev/null || true
+COPY ["backend/requirements*.txt", "./backend/"] 2>/dev/null || true
 
 # Install dependencies if package files exist
 RUN if [ -f "./frontend/package.json" ]; then \
