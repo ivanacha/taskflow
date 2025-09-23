@@ -1,6 +1,6 @@
-import { io, Socket } from 'socket.io-client';
+import { io, Socket } from "socket.io-client";
 
-const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000';
+const SOCKET_URL = import.meta.env.VITE_SOCKET_URL || "http://localhost:5000";
 
 class SocketService {
   private socket: Socket | null = null;
@@ -12,12 +12,12 @@ class SocketService {
       },
     });
 
-    this.socket.on('connect', () => {
-      console.log('Connected to socket server');
+    this.socket.on("connect", () => {
+      console.log("Connected to socket server");
     });
 
-    this.socket.on('disconnect', () => {
-      console.log('Disconnected from socket server');
+    this.socket.on("disconnect", () => {
+      console.log("Disconnected from socket server");
     });
   }
 
@@ -28,13 +28,13 @@ class SocketService {
     }
   }
 
-  emit(event: string, data: unknown): void {
+  emit<T>(event: string, data: T): void {
     if (this.socket) {
       this.socket.emit(event, data);
     }
   }
 
-  on(event: string, callback: (data: unknown) => void): void {
+  on<T>(event: string, callback: (data: T) => void): void {
     if (this.socket) {
       this.socket.on(event, callback);
     }

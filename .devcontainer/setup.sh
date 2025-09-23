@@ -54,6 +54,15 @@ if [ -d "database" ]; then
     echo "✅ Database setup complete"
 fi
 
+# Install Claude Code
+echo "🤖 Installing Claude Code..."
+if command -v npm &> /dev/null; then
+    npm install -g @anthropic-ai/claude-code
+    echo "✅ Claude Code installed globally"
+else
+    echo "⚠️ npm not found, skipping Claude Code installation"
+fi
+
 # Set up git hooks
 if [ -d ".git" ]; then
     echo "🔧 Setting up git hooks..."

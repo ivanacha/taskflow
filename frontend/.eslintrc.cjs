@@ -13,10 +13,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
-    project: ["./tsconfig.app.json", "./tsconfig.node.json"],
   },
   plugins: ["@typescript-eslint", "react-hooks", "react-refresh"],
-  ignorePatterns: ["tests/**/*", "vitest.config.ts"],
+  ignorePatterns: ["tests/**/*", "vitest.config.ts", "node_modules/**/*", "dist/**/*"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",

@@ -34,7 +34,8 @@ RUN npm install -g \
     nodemon \
     prettier \
     eslint \
-    @vitejs/plugin-react
+    @vitejs/plugin-react \
+    @anthropic-ai/claude-code
 
 # Install global Python packages
 RUN python -m pip install --upgrade pip \
